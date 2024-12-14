@@ -83,6 +83,7 @@ def update_pie_chart(launch_site):
                 )
 
     return fig
+
 @app.callback(
         Output(component_id='success-payload-scatter-chart', component_property='figure'),
         [
@@ -101,7 +102,8 @@ def update_scatter_chart(launch_site, payload_range):
                 y='class',
                 color='Booster Version Category',
                 title='Correlation between Payload and Success for All Sites',
-                hover_data=['Launch Site']
+                hover_data=['Launch Site'],
+                labels={'class': 'Success'}
                 )
     else:
         site_filtered_df = filtered_df[filtered_df['Launch Site'] == launch_site]
@@ -111,7 +113,8 @@ def update_scatter_chart(launch_site, payload_range):
                 y='class',
                 color='Booster Version Category',
                 title=f'Correlation between Payload and Success for {launch_site}',
-                hover_data=['Launch Site']
+                hover_data=['Launch Site'],
+                labels={'class': 'Success'}
                 )
 
     return fig
